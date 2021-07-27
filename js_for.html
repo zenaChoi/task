@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mid = 50;
+        let fin = 24;
+        let grade,score;
+
+        //등급메기기
+        if(mid+fin>=80){
+            grade="A";
+        }else if (mid+fin>=50){
+            grade="B";
+        }else if (mid+fin>=30){
+            grade="C";
+        }else{
+            grade="F";
+        } 
+        console.log(grade);
+
+        //등급을 점수로
+        if(grade=="A"){
+            score=4;
+        }else if(grade=="B"){
+            score=3;
+        }else if(grade=="C"){
+            score=2;
+        }else{
+            score=1;
+        };
+        console.log(score);
+
+        //점수 개수로 별 출력하기
+        let star="";
+        for (let n=0; n<=score; n++){
+            star=star+"*";
+        }
+        console.log(star);
+
+    </script>
+    
+</body>
+</html>
