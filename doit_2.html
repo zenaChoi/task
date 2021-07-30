@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ageCalc {display:flex; flex-direction: column; align-items: center;}
+        .ageCalc .btn button {text-size:16px; color: white; border:1px solid black; background-color: black; padding: 4px 16px; }
+    </style>
+</head>
+<body>
+    <div class="ageCalc">
+        <div class="btn">
+            <button onclick="addBirth()">나이 계산하기</button>
+        </div>
+        <div class="ageResult">
+            결과 값이 표시됩니다.
+        </div>
+    </div>
+    <script>
+        let birth, age;
+        let nowYear = new Date().getFullYear();
+        console.log(nowYear);
+
+        function addBirth(){
+            birth = prompt("출생 년도를 입력하세요")
+            if(birth>=nowYear){
+                alert("출생년도가 잘못되었습니다")
+            }else{
+                age = nowYear-birth+1;
+                // alert("당신의 나이는"+age+"세 입니다.")
+                document.querySelector(".ageResult").innerHTML="당신의 나이는"+age+"세 입니다";
+            }
+        }
+
+    </script>
+</body>
+</html>
