@@ -11,10 +11,10 @@
         let now = new Date(); // 현재 날짜 및 시간 갖고오기
         console.log("현재 날짜는 "+now); //콘솔에 현재 날짜 표시
 
-        let hours = now.getHours(); //현재 시간 갖고오기
-        console.log("현재 시간은 "+hours); //콘솔에 현재 시간 표시
-          
-        function timeSale(hours){
+        function timeSale(now){
+            let hours = now.getHours(); //현재 시간 갖고오기
+            console.log("현재 시간은 "+hours); //콘솔에 현재 시간 표시
+
             if(hours==10){
                 return true;
             }else{
@@ -22,8 +22,7 @@
             }
         }  
 
-        console.log(timeSale(hours));
-
+        console.log(timeSale(now));
     </script>
 </body>
 </html>
