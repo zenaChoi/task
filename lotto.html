@@ -12,14 +12,15 @@
         for(let i=0; i<lotto.length; i++){ //한 줄에 들어갈 것들
             let lottoNum = new Array(6);
             for(let j=0; j<6; j++){
-                let num = Math.ceil(Math.random()*45) //랜덤으로 숫자 생성
-                if(lottoNum.includes(num)){ //숫자 같은지 보고 다시 랜덤추첨해
-                    num = Math.ceil(Math.random()*45)
+                let num = Math.ceil(Math.random()*45);
+                while(lottoNum.includes(num)){ //로또넘버가 num을 포함하는게 True이면 계속 진행
+                    num = Math.ceil(Math.random()*45);
                 }
-                lottoNum[j]=num; 
+                lottoNum[j]=num;
             }
             lotto[i]=lottoNum; //로또넘버 로또안에 넣기
         }
+
         console.log(lotto);
     </script>
 </body>
