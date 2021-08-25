@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        .replyLeft {display: inline-block; width:100px;}
+        .replyCont {border-bottom: 1px solid gray;padding-bottom:8px; font-size: 16px;}
+        .replyId {font-weight: 700;}
+        .replyTime {font-size:10px; color:gray;}
+    </style>
 </head>
 <body>
     <form>
-        닉네임: <input type="text" name="userId" class="userId" />
-        댓글 입력: <input type="text" name="replyText" class="replyText"/>
-        <button type="submit" class="replyBtn">입력하기</button>
+        <div>
+            <span class="replyLeft">닉네임: </span> 
+            <input type="text" name="userId" class="userId" />
+        </div>
+        <div>
+            <span class="replyLeft">댓글 입력: </span> 
+            <input type="text" name="replyText" class="replyText"/>
+            <button type="button" class="replyBtn">입력하기</button>
+        </div>
     </form>
+
     <hr/>
+
     <div class="replyList">
     </div>
     
 
     <script>
         $(document).ready(function(){
-            //버튼을 클릭했을 때 닉네임과 댓글 내용을 가져온다.
+            //버튼을 클릭했을 때
             $(".replyBtn").on("click", function(){
-                //닉네임의 값을 받아오기
+                // 닉네임과 댓글 내용, 현재 시간을 가져온다.
                 let userId = $(".userId").val();
-                console.log(userId);
-            })
+                let replyText = $(".replyText").val();
+                let now = new Date();
+                // 댓글 객체에 정보를 넣는다
+                newReply = new reply(userId, now, replyText);
+                //객체 정보를 가지고 덧글을 입력한다.
+                $(".replyList").append(
+                    "<div> <span class='replyId'>작성자:"+userId+"</span>"+
+                    "<span class='replyTime'>작성일: "+now+"</span> <br>"+
+                    "<p class='replyCont'>"+replyText+"</p> </div>");
+            });
         });
+
+         
+        //덧글 객체 선언
+        function reply(userId, now, replyText){
+            this.userId = userId;
+            this.now = now;
+            this.replyText = replyText;
+        }
+
+        
+        
         
     </script>
 </body>
